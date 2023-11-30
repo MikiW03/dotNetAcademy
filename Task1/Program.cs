@@ -74,7 +74,7 @@
                             Console.WriteLine("Factorial of a non-integer number is undefined!");
                             continue;
                         }
-                        result = Calculator.Factorial((int)number1);
+                        result = Calculator.Factorial((ulong)number1);
                         break;
                     default:
                         break;

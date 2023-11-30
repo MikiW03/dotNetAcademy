@@ -33,7 +33,7 @@ namespace task1
             return Math.Pow(a, b);
         }
 
-        public static int Factorial(int a)
+        public static ulong Factorial(ulong a)
         {
             if (a == 0)
             {
