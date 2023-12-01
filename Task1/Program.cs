@@ -16,52 +16,52 @@
                     continue;
                 }
 
-                Console.Write("Enter the number: ");
-                if (!double.TryParse(Console.ReadLine(), out double number1))
-                {
-                    Console.WriteLine("Invalid number!");
+                if (!GetNumberFromConsole(out double number1)) 
+                { 
                     continue;
-                };
-
+                }
 
                 double number2 = 0;
                 if (sign != "!")
                 {
-                    Console.Write("Enter the second number: ");
-                    if (!double.TryParse(Console.ReadLine(), out number2))
+                    if (!GetNumberFromConsole(out number2))
                     {
-                        Console.WriteLine("Invalid number!");
                         continue;
-                    };
+                    }
                 }
 
                 double result = 0;
                 switch (sign)
                 {
                     case "+":
-                        result = Calculator.Add(number1, number2);
+                        if (!Calculator.Add(number1, number2, out result))
+                        {
+                            continue;
+                        }
                         break;
                     case "-":
-                        result = Calculator.Subtract(number1, number2);
+                        if (!Calculator.Subtract(number1, number2, out result))
+                        {
+                            continue;
+                        }
                         break;
                     case "*":
-                        result = Calculator.Multiply(number1, number2);
+                        if (!Calculator.Multiply(number1, number2, out result))
+                        {
+                            continue;
+                        };
                         break;
                     case "/":
-                        if (number2 == 0)
+                        if (!Calculator.Divide(number1, number2, out result))
                         {
-                            Console.WriteLine("You cannot divide by zero!");
                             continue;
                         }
-                        result = Calculator.Divide(number1, number2);
                         break;
                     case "^":
-                        if (number1 == 0 && number2 == 0)
+                        if (!Calculator.Exponentiate(number1, number2, out result))
                         {
-                            Console.WriteLine("0^0 is undefined!");
-                            continue;
+                            continue; 
                         }
-                        result = Calculator.Exponentiate(number1, number2);
                         break;
                     case "!":
                         if (number1 < 0)
@@ -72,6 +72,11 @@
                         if (!IsInteger(number1))
                         {
                             Console.WriteLine("Factorial of a non-integer number is undefined!");
+                            continue;
+                        }
+                        if(number1 > 65)
+                        {
+                            Console.WriteLine("This number is too big");
                             continue;
                         }
                         result = Calculator.Factorial((ulong)number1);
@@ -87,6 +92,17 @@
         public static bool IsInteger(double number)
         {
             return number % 1 == 0;
+        }
+        
+        public static bool GetNumberFromConsole(out double number)
+        {
+            Console.Write("Enter the number: ");
+            if (!double.TryParse(Console.ReadLine(), out number))
+            {
+                Console.WriteLine("Invalid number!");
+                return false;
+            };
+            return true;
         }
     }
 }
