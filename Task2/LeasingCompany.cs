@@ -22,7 +22,7 @@ namespace Task2
 
         public List<Vehicle> GetExploitedVehicles()
         {
-            return _vehiclesList;
+            return _vehiclesList.FindAll(vehicle => vehicle.Mileage > vehicle.MileageUntilExploited);
         }
         public double GetTotalFleetValue()
         {
