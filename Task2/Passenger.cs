@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Passenger(string brand, string model, int year, string color, decimal price, string registrationNumber) 
-        :Vehicle(brand, model, year, color, price, registrationNumber)
+    public class Passenger(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage) 
+        :Vehicle(brand, model, year, color, price, registrationNumber, mileage)
     {
-        protected override int MileageUntilExploited { get; set; } = 100_000;
-        protected override int MileageUntilMaintanance { get; set; } = 5_000;
-        protected override int YearsUntilExploited { get; set; } = 5;
-        protected override int ValueDecreasePerYear { get; set; } = 10;
+        public override int MileageUntilExploited { get; protected set; } = 100_000;
+        public override int MileageUntilMaintanance { get; protected set; } = 5_000;
+        public override int YearsUntilExploited { get; protected set; } = 5;
+        public override int ValueDecreasePerYear { get; protected set; } = 10;
 
         public decimal GetRentalCosts(DateTime endOfRental, int distance)
         {
