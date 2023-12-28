@@ -37,7 +37,8 @@ namespace Task2
         }
         public List<Vehicle> GetVehiclesCloseToMaintanance()
         {
-            return _vehiclesList;
+            return _vehiclesList
+                .FindAll(vehicle => vehicle.Mileage%vehicle.MileageUntilMaintanance > vehicle.MileageUntilMaintanance-1000);
         }
     }
 }
