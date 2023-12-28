@@ -24,9 +24,9 @@ namespace Task2
         {
             return _vehiclesList.FindAll(vehicle => vehicle.Mileage > vehicle.MileageUntilExploited);
         }
-        public double GetTotalFleetValue()
+        public decimal GetTotalFleetValue()
         {
-            return 0;
+            return _vehiclesList.Sum(vehicle => vehicle.Price);
         }
         public List<Vehicle> GetMatchingVehicles(string brand, string color)
         {
