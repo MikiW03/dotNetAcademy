@@ -30,7 +30,10 @@ namespace Task2
         }
         public List<Vehicle> GetMatchingVehicles(string brand, string color)
         {
-            return _vehiclesList.FindAll(vehicle => vehicle.Brand == brand && vehicle.Color == color);
+            return _vehiclesList
+                .FindAll(vehicle => vehicle.Brand == brand && vehicle.Color == color)
+                .OrderByDescending(vehicle => vehicle.ComfortClass)
+                .ToList();
         }
         public List<Vehicle> GetVehiclesCloseToMaintanance()
         {
