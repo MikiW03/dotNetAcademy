@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Cargo(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage) 
-        :Vehicle(brand, model, year, color, price, registrationNumber, mileage)
+    public class Cargo(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage, string comfortClass) 
+        :Vehicle(brand, model, year, color, price, registrationNumber, mileage, comfortClass)
     {
         public override int MileageUntilExploited { get; protected set; } = 1_000_000;
         public override int MileageUntilMaintanance { get; protected set; } = 15_000;
