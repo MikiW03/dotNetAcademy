@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Cargo(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage, int comfortClass) 
-        :Vehicle(brand, model, year, color, price, registrationNumber, mileage, comfortClass)
+    public class Cargo(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage, int comfortClass, double modelCoefficient)
+        : Vehicle(brand, model, year, color, price, registrationNumber, mileage, comfortClass, modelCoefficient)
     {
         public override int MileageUntilExploited { get; protected set; } = 1_000_000;
         public override int MileageUntilMaintanance { get; protected set; } = 15_000;
@@ -16,7 +16,8 @@ namespace Task2
 
         public decimal GetRentalCosts(DateTime endOfRental, int distance, int weight)
         {
-            return 0;
+            // ($2 for each hour started + $0.5 for each kilometer + $1 for each kilogram of load) * model coefficient
+            return (2 * (decimal)Math.Ceiling((endOfRental - DateTime.Now).TotalHours) + 0.5m * distance + weight) * (decimal)ModelCoefficient;
         }
     }
 }

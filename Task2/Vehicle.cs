@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public abstract class Vehicle(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage, int comfortClass)
+    public abstract class Vehicle(string brand, string model, int year, string color, decimal price, string registrationNumber, int mileage, int comfortClass, double modelCoefficient)
     {
         public readonly Guid Id = Guid.NewGuid();
         public string Brand { get; set; } = brand;
@@ -17,6 +17,7 @@ namespace Task2
         public string RegistrationNumber { get; set; } = registrationNumber;
         public int Mileage { get; set; } = mileage;
         public int ComfortClass { get; set; } = comfortClass;
+        public double ModelCoefficient { get; set; } = modelCoefficient;
 
         public abstract int MileageUntilExploited { get; protected set; }
         public abstract int MileageUntilMaintanance { get; protected set; }
