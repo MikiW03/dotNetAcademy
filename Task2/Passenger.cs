@@ -18,7 +18,8 @@ namespace Task2
         {
             // ($1 for each hour started + $0.3 for each kilometer) * model coefficient * lessee's rating
             // in real life every user would probably have an account with his own rating, but for the sake of this task i will just assume that every user has the same rating
-            return ((decimal)Math.Ceiling((endOfRental - DateTime.Now).TotalHours) + 0.3m * distance) * (decimal)ModelCoefficient * 1m;
+            var costs = ((decimal)Math.Ceiling((endOfRental - DateTime.Now).TotalHours) + 0.3m * distance) * (decimal)ModelCoefficient * 1m;
+            return Math.Floor(costs*100)/100;
         }
     }
 }

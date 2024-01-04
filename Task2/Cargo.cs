@@ -17,7 +17,8 @@ namespace Task2
         public decimal GetRentalCosts(DateTime endOfRental, int distance, int weight)
         {
             // ($2 for each hour started + $0.5 for each kilometer + $1 for each kilogram of load) * model coefficient
-            return (2 * (decimal)Math.Ceiling((endOfRental - DateTime.Now).TotalHours) + 0.5m * distance + weight) * (decimal)ModelCoefficient;
-        }
+            var costs = (2 * (decimal)Math.Ceiling((endOfRental - DateTime.Now).TotalHours) + 0.5m * distance + weight) * (decimal)ModelCoefficient;
+            return Math.Floor(costs*100)/100;
+        } 
     }
 }
