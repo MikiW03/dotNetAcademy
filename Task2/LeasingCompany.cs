@@ -19,12 +19,14 @@ namespace Task2
         {
             _vehiclesList.Add(vehicle);
         }
-
-
+        public Vehicle? GetVehicle(int number)
+        {
+            return _vehiclesList.Find(vehicle => vehicle.Number == number);
+        }
         public List<Vehicle> GetExploitedVehicles()
         {
-            return _vehiclesList.FindAll(vehicle => vehicle.Mileage > vehicle.MileageUntilExploited 
-            ||  (DateTime.Now.Year - vehicle.Year) > vehicle.YearsUntilExploited);
+            return _vehiclesList.FindAll(vehicle => vehicle.Mileage > vehicle.MileageUntilExploited
+            || (DateTime.Now.Year - vehicle.Year) > vehicle.YearsUntilExploited);
         }
         public decimal GetTotalFleetValue()
         {
@@ -46,7 +48,7 @@ namespace Task2
         public List<Vehicle> GetVehiclesCloseToMaintanance()
         {
             return _vehiclesList
-                .FindAll(vehicle => vehicle.Mileage%vehicle.MileageUntilMaintanance > vehicle.MileageUntilMaintanance-1000);
+                .FindAll(vehicle => vehicle.Mileage % vehicle.MileageUntilMaintanance > vehicle.MileageUntilMaintanance - 1000);
         }
     }
 }
