@@ -41,13 +41,13 @@ namespace Task2
         public List<Vehicle> GetMatchingVehicles(string brand)
         {
             return _vehiclesList
-                .FindAll(vehicle => vehicle.Brand == brand)
+                .FindAll(vehicle => vehicle.Brand.Equals(brand, StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
         public List<Vehicle> GetMatchingVehicles(string brand, string color)
         {
             return _vehiclesList
-                .FindAll(vehicle => vehicle.Brand == brand && vehicle.Color == color)
+                .FindAll(vehicle => vehicle.Brand.Equals(brand, StringComparison.OrdinalIgnoreCase) && vehicle.Color.Equals(color, StringComparison.OrdinalIgnoreCase))
                 .OrderByDescending(vehicle => vehicle.ComfortClass)
                 .ToList();
         }
