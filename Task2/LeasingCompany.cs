@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,11 @@ namespace Task2
         public void AddVehicle(Vehicle vehicle)
         {
             _vehiclesList.Add(vehicle);
+        }
+        public bool RemoveVehicle(int number)
+        {
+            var isCompleted = _vehiclesList.Remove(_vehiclesList.Find(v => v.Number == number));
+            return isCompleted;
         }
         public Vehicle? GetVehicle(int number)
         {
