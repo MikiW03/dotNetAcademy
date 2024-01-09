@@ -14,7 +14,7 @@ namespace Task2
         public override int YearsUntilExploited { get; protected set; } = 15;
         public override int ValueDecreasePerYear { get; protected set; } = 7;
 
-        public decimal GetRentalCosts(DateTime endOfRental, int distance, int weight)
+        public decimal GetRentalCosts(DateTime endOfRental, uint distance, uint weight)
         {
             // ($2 for each hour started + $0.5 for each kilometer + $1 for each kilogram of load) * model coefficient
             var costs = (2 * (decimal)Math.Ceiling((endOfRental - DateTime.Now).TotalHours) + 0.5m * distance + weight) * (decimal)ModelCoefficient;

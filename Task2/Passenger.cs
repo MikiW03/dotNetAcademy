@@ -14,7 +14,7 @@ namespace Task2
         public override int YearsUntilExploited { get; protected set; } = 5;
         public override int ValueDecreasePerYear { get; protected set; } = 10;
 
-        public decimal GetRentalCosts(DateTime endOfRental, int distance)
+        public decimal GetRentalCosts(DateTime endOfRental, uint distance)
         {
             // ($1 for each hour started + $0.3 for each kilometer) * model coefficient * lessee's rating
             // in real life every user would probably have an account with his own rating, but for the sake of this task i will just assume that every user has the same rating
