@@ -32,17 +32,19 @@ namespace Task2
         public override string ToString()
         {
             var type = GetType().Name;
-            return String.Format($"No.{Number}{Environment.NewLine}" +
-                                 $"Type: {type}{Environment.NewLine}" +
-                                 $"Brand: {Brand}{Environment.NewLine}" +
-                                 $"Model: {Model}{Environment.NewLine}" +
-                                 $"Year of Manufacture: {Year}{Environment.NewLine}" +
-                                 $"Color: {Color}{Environment.NewLine}" +
-                                 $"Price: {Price}{Environment.NewLine}" +
-                                 $"Registration Number: {RegistrationNumber}{Environment.NewLine}" +
-                                 $"Mileage: {Mileage}{Environment.NewLine}" +
-                                 $"Comfort Class: {ComfortClass}{Environment.NewLine}" +
-                                 $"Model Coefficient: {ModelCoefficient}{Environment.NewLine}");
+            return String.Format($"""
+            No.{Number}
+            Type: {type}
+            Brand: {Brand}
+            Model: {Model}
+            Year of Manufacture: {Year}
+            Color: {Color}
+            Price: {Price}
+            Registration Number: {RegistrationNumber}
+            Mileage: {Mileage}
+            Comfort Class: {ComfortClass}
+            Model Coefficient: {ModelCoefficient}{Environment.NewLine}
+            """);
         }
     }
 }

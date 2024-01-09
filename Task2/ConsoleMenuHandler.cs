@@ -172,16 +172,18 @@ namespace Task2
 
         private void PrintMenu()
         {
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine("0 - Quit");
-            Console.WriteLine("1 - See all vehicles");
-            Console.WriteLine("2 - See vehicles of a specific brand");
-            Console.WriteLine("3 - See vehicles of a specific brand and color");
-            Console.WriteLine("4 - See exploited vehicles");
-            Console.WriteLine("5 - See a total fleet value");
-            Console.WriteLine("6 - See vehicles close to maintanance");
-            Console.WriteLine("7 - Rent a vehicle");
-            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("""
+            ----------------------------------------
+            0 - Quit
+            1 - See all vehicles
+            2 - See vehicles of a specific brand
+            3 - See vehicles of a specific brand and color
+            4 - See exploited vehicles
+            5 - See a total fleet value
+            6 - See vehicles close to maintanance
+            7 - Rent a vehicle
+            ----------------------------------------
+            """);
         }
     }
 }
