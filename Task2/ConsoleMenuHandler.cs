@@ -144,8 +144,8 @@ namespace Task2
 
                         if (vehicle is Passenger passengerVehicle)
                         {
-                            var date = _inputHandler.GetDateFromConsole("Enter the end date of the rental (MM/DD/YYYY): ");
-                            var distance = _inputHandler.GetIntFromConsole("Enter the distance of your travel (km): ");
+                            var date = _inputHandler.GetFutureDateFromConsole("Enter the end date of the rental (MM/DD/YYYY): ");
+                            var distance = _inputHandler.GetPositiveIntFromConsole("Enter the distance of your travel (km): ");
 
                             var cost = passengerVehicle.GetRentalCosts(date, distance);
                             Console.WriteLine($"The cost of your rental is: ${cost:F2}");
@@ -153,9 +153,9 @@ namespace Task2
                         }
                         else if (vehicle is Cargo cargoVehicle)
                         {
-                            var date = _inputHandler.GetDateFromConsole("Enter the end date of the rental (MM/DD/YYYY): ");
-                            var distance = _inputHandler.GetIntFromConsole("Enter the distance of your travel (km): ");
-                            var weight = _inputHandler.GetIntFromConsole("Enter a weight of your loading: ");
+                            var date = _inputHandler.GetFutureDateFromConsole("Enter the end date of the rental (MM/DD/YYYY): ");
+                            var distance = _inputHandler.GetPositiveIntFromConsole("Enter the distance of your travel (km): ");
+                            var weight = _inputHandler.GetPositiveIntFromConsole("Enter a weight of your loading: ");
 
                             var cost = cargoVehicle.GetRentalCosts(date, distance, weight);
                             Console.WriteLine($"The cost of your rental is: ${cost:F2}");
